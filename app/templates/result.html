@@ -1,5 +1,5 @@
-<div class="result">
-          <div>{{randomResult()}}</div>
+<div  ng-repeat="result in testResults | limitTo: 1" class="result">
+          <div>{{result}}</div>
 </div>
 
-<a href="#/index">Noch ein mal</a>
+<a href="#/index" class="button">Thank you</a>

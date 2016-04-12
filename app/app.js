@@ -1,37 +1,19 @@
 (function(){
   var app = angular.module('app', ['ngRoute']);
 
-  app.controller('HomeController',['$scope', function($scope){
-    $scope.testQuestions = questions;
-    $scope.testAnswers = answers;
-    $scope.testResults = results;
-
-    $scope.randomQuestion = function(){
-      return $scope.testQuestions[Math.floor(Math.random()*$scope.testQuestions.length)];
-    }
-    $scope.randomAnswer = function(){
-      return $scope.testAnswers[Math.floor(Math.random()*$scope.testAnswers.length)];
-    }
-    $scope.randomResult = function(){
-      return $scope.testResults[Math.floor(Math.random()*$scope.testResults.length)];
-    }
-
-  }]);
-
-  app.config(['$logProvider', '$routeProvider', function($logProvider, $routeProvider){
-    $logProvider.debugEnabled(true);
+  app.config([ '$routeProvider', function( $routeProvider){
 
     $routeProvider
         .when('/',{
-          controller:'HomeController',
+          controller:'HomeCtrl',
           templateUrl:'app/templates/home.html'
         })
-        .when('#/question',{
-          controller:'HomeController',
+        .when('/question',{
+          controller:'QuestionCtrl',
           templateUrl:'app/templates/question.html'
         })
-        .when('#/result',{
-          controller:'HomeController',
+        .when('/result',{
+          controller:'ResultCtrl',
           templateUrl:'app/templates/result.html'
         })
         .otherwise('/');
@@ -39,6 +21,37 @@
 
   }]);
 
+  app.controller('HomeCtrl',['$scope', function($scope){
+    console.log("home");
+
+
+  }]);
+
+
+  app.controller('QuestionCtrl',['$scope', function($scope){
+    console.log("question");
+
+    $scope.testQuestions = questions;
+    $scope.testAnswers = answers;
+    $scope.testResults = results;
+
+    // $scope.randomQuestion = function(){
+    //   return $scope.testQuestions[Math.floor(Math.random()*$scope.testQuestions.length)];
+    // }
+    $scope.randomAnswer = function(){
+      // console.log(1);
+    }
+    // $scope.randomResult = function(){
+    //   return $scope.testResults[Math.floor(Math.random()*$scope.testResults.length)];
+    // }
+
+  }]);
+
+  app.controller('ResultCtrl',['$scope', function($scope){
+    console.log("result");
+
+
+  }]);
 
 
 var questions = [

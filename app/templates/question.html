@@ -1,9 +1,9 @@
 <div ng-repeat="question in testQuestions | limitTo: 1" class="question">
-  <div>{{randomQuestion()}}</div>
+  <div>{{question}}</div>
 </div>
 
 <div ng-repeat="answer in testAnswers | limitTo: 4">
-  <div><a href="" class="answer button">{{randomAnswer()}}</a></div>
+  <div><a href="" class="answer button">{{answer}}</a></div>
 </div>
 
 <a href="#/result" class="button clearfix">Result</a>

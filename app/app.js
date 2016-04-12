@@ -21,37 +21,59 @@
 
   }]);
 
+
   app.controller('HomeCtrl',['$scope', function($scope){
     console.log("home");
 
 
-  }]);
+}]);
+
+app.controller('QuestionCtrl',['$scope', function($scope){
+  console.log("question");
+
+  $scope.testQuestions = questions;
+  $scope.testAnswers = answers;
+  $scope.testResults = results;
+
+  // $scope.randomQuestion = function(){
+  //   return $scope.testQuestions[Math.floor(Math.random()*$scope.testQuestions.length)];
+  // }
+
+  $scope.randomAnswer = function(array){
+  $scope.resultArray = [];
+  for(var i = 0; i<4; i++){
+    var randomIndex = Math.floor(Math.random()*array.length);  //length is not defined
+
+    $scope.resultArray.push(array[randomIndex]);
+  }
+  return $scope.resultArray;
+}
+
+$scope.questionsResult = $scope.randomAnswer($scope.testQuestions);
+$scope.answersResult = $scope.randomAnswer($scope.testAnswers);
+$scope.resultsResult = $scope.randomAnswer($scope.testResults);
+
+// console.log($scope.resultArray);
 
 
-  app.controller('QuestionCtrl',['$scope', function($scope){
-    console.log("question");
-
-    $scope.testQuestions = questions;
-    $scope.testAnswers = answers;
-    $scope.testResults = results;
-
-    // $scope.randomQuestion = function(){
-    //   return $scope.testQuestions[Math.floor(Math.random()*$scope.testQuestions.length)];
-    // }
-    $scope.randomAnswer = function(){
-      // console.log(1);
-    }
-    // $scope.randomResult = function(){
-    //   return $scope.testResults[Math.floor(Math.random()*$scope.testResults.length)];
-    // }
-
-  }]);
-
-  app.controller('ResultCtrl',['$scope', function($scope){
-    console.log("result");
+  // $scope.randomResult = function(){
+  //   return $scope.testResults[Math.floor(Math.random()*$scope.testResults.length)];
+  // }
 
 
-  }]);
+}]);
+
+app.controller('ResultCtrl',['$scope', function($scope){
+  console.log("result");
+
+
+}]);
+
+
+
+
+
+
 
 
 var questions = [

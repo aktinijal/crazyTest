@@ -1,8 +1,9 @@
-<div ng-repeat="question in testQuestions | limitTo: 1" class="question">
+<div ng-repeat="question in questionsResult | limitTo: 1">
   <div>{{question}}</div>
 </div>
 
-<div ng-repeat="answer in testAnswers | limitTo: 4">
+<!-- <button type="button" name="button" ng-click="randomAnswer()">Click</button> -->
+<div ng-repeat="answer in answersResult track by $index">
   <div><a href="" class="answer button">{{answer}}</a></div>
 </div>
 
